@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EncryptedChatApp.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "get Bob"
+    }
+  }
+}
