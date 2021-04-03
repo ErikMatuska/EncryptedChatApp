@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptedChatApp.Api", "Enc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptedChatApp.Console", "EncryptedChatApp.Console\EncryptedChatApp.Console.csproj", "{C4E1ECE7-E914-4678-81CE-19DD9220F13D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptedChatApp.Avalonia", "EncryptedChatApp.Avalonia\EncryptedChatApp.Avalonia.csproj", "{1F77DE5A-B9EF-4EC3-8A8C-4E282D10426F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C4E1ECE7-E914-4678-81CE-19DD9220F13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4E1ECE7-E914-4678-81CE-19DD9220F13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4E1ECE7-E914-4678-81CE-19DD9220F13D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F77DE5A-B9EF-4EC3-8A8C-4E282D10426F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F77DE5A-B9EF-4EC3-8A8C-4E282D10426F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F77DE5A-B9EF-4EC3-8A8C-4E282D10426F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F77DE5A-B9EF-4EC3-8A8C-4E282D10426F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

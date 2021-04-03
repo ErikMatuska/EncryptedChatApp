@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:EncryptedChatApp.Avalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EncryptedChatApp.Avalonia.Pages.RegisterPage">
+    <Design.DataContext>
+        <vm:RegisterViewModel />
+    </Design.DataContext>
+
+    <Panel>
+        <StackPanel Width="300"
+            Margin="40"
+            Spacing="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsVisible="{Binding !Completed}">
+
+            <TextBlock Text="Enter your credentials:"
+                       Classes="header" />
+            <TextBox Watermark="Username" Text="{Binding UserName}" />
+            <TextBox Watermark="Email" Text="{Binding Email}" />
+            <TextBox Watermark="Password" Text="{Binding Password}" PasswordChar="#" />
+            <TextBox Watermark="Confirm Password" Text="{Binding ConfirmPassword}" PasswordChar="#" />
+            <Button Content="Create account!" HorizontalAlignment="Right" Width="150" Command="{Binding RegisterCommand}" />
+        </StackPanel>
+
+        <StackPanel Width="300"
+                Margin="40"
+                Spacing="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsVisible="{Binding Completed}">
+
+            <TextBlock Text="Succesfully created account!" HorizontalAlignment="Center" FontSize="20" />
+        </StackPanel>
+    </Panel>
+</UserControl>

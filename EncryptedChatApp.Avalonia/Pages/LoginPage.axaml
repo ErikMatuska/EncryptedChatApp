@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:EncryptedChatApp.Avalonia.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EncryptedChatApp.Avalonia.Pages.LoginPage">
+
+    <Design.DataContext>
+        <vm:LoginPageViewModel/>
+    </Design.DataContext>
+
+    <Panel>
+        <StackPanel Width="300"
+            Margin="40"
+            Spacing="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsVisible="{Binding !CurrentUserManager.IsLogged}">
+
+            <TextBlock Text="Enter your credentials:"
+                       Classes="header" />
+            <TextBox Watermark="Username" Text="{Binding UserName}" />
+            <TextBox Watermark="Password" Text="{Binding Password}" PasswordChar="#" />
+            <Button Content="Login" HorizontalAlignment="Right" Width="100" Command="{Binding LoginCommand}" />
+        </StackPanel>
+
+        <StackPanel Width="300"
+                Margin="40"
+                Spacing="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsVisible="{Binding CurrentUserManager.IsLogged}">
+
+            <TextBlock Text="Succesfully logged!" HorizontalAlignment="Center" FontSize="20" />
+        </StackPanel>
+    </Panel>
+</UserControl>

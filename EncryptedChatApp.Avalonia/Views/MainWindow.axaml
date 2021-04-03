@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:EncryptedChatApp.Avalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pages="clr-namespace:EncryptedChatApp.Avalonia.Pages;assembly=EncryptedChatApp.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EncryptedChatApp.Avalonia.Views.MainWindow"
+        FontSize="14"
+        Title="EncryptedChatApp.Avalonia">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Panel>
+        <DockPanel HorizontalAlignment="Stretch">
+            <ExperimentalAcrylicBorder DockPanel.Dock="Left" Width="240">
+                <ExperimentalAcrylicBorder.Material>
+                    <ExperimentalAcrylicMaterial TintColor="#2196F3" MaterialOpacity="0.85" TintOpacity="1" />
+                </ExperimentalAcrylicBorder.Material>
+                <!--<AutoCompleteBox HorizontalAlignment="Stretch" Margin="20 40 20 0" Watermark="Search"  />-->
+                <Image Source="resm:EncryptedChatApp.Avalonia.Assets.avalonia-logo.ico" Width="60" Margin="20" VerticalAlignment="Top"/>
+            </ExperimentalAcrylicBorder>
+            <ExperimentalAcrylicBorder IsHitTestVisible="False">
+                <ExperimentalAcrylicBorder.Material>
+                    <ExperimentalAcrylicMaterial TintColor="#222222" MaterialOpacity="0.85" TintOpacity="1" />
+                </ExperimentalAcrylicBorder.Material>
+                <TextBlock Text="{Binding #tabControlMenu.SelectedItem.Header}" Margin="40 20" FontSize="32" FontWeight="Light" />
+            </ExperimentalAcrylicBorder>
+        </DockPanel>
+
+        <TabControl x:Name="tabControlMenu" SelectionChanged="SelectionChanged" Classes="sidebar" Margin="0 40 0 20">
+            <TabItem Header="Login">
+                <pages:LoginPage />
+            </TabItem>
+            <TabItem Header="Register">
+                <pages:RegisterPage />
+            </TabItem>
+            <TabItem Header="Messages">
+                <pages:MessagesPage />
+            </TabItem>
+            <TabItem Header="Personal info">
+                <pages:UserInfoPage />
+            </TabItem>
+        </TabControl>
+
+        <StackPanel VerticalAlignment="Bottom"
+                    Orientation="Horizontal"
+                    IsVisible="{Binding CurrentUserManager.IsLogged}" >
+            <Button Command="{Binding LogoutCommand}"
+                    Background="Gray"
+                    Content="Logout"
+                    Margin="20" />
+            <TextBlock
+                    VerticalAlignment="Center"
+                    Text="{Binding CurrentUserManager.UserName}"/>
+        </StackPanel>
+    </Panel>
+</Window>
